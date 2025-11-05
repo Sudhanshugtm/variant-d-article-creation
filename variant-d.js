@@ -192,6 +192,149 @@ const SECTION_EXAMPLES = {
         url: 'https://en.wikipedia.org/wiki/Katie_Ledecky#World_Championships'
       }
     ]
+  },
+
+  // NEW SECTION EXAMPLES FOR 8 NEW TEMPLATES
+
+  // Films
+  'plot': {
+    heading: 'Example "Plot" sections from Wikipedia',
+    examples: [
+      {
+        title: 'The Shawshank Redemption',
+        text: 'In 1947, banker Andy Dufresne is convicted of murdering his wife and her lover and sentenced to two consecutive life sentences at Shawshank State Penitentiary in Maine. He is befriended by Ellis "Red" Redding, an inmate and prison contraband smuggler serving a life sentence. Andy finds his existence in prison difficult, and is harassed by the prison gang "the Sisters" and their leader, Bogs. In 1949, Andy overhears the captain of the guards, Byron Hadley, complaining about being taxed on an inheritance and offers to help him shelter the money legally.',
+        url: 'https://en.wikipedia.org/wiki/The_Shawshank_Redemption#Plot'
+      },
+      {
+        title: 'Parasite (2019 film)',
+        text: 'The Kim family—father Ki-taek, mother Chung-sook, daughter Ki-jung, and son Ki-woo—live in a cramped semi-basement apartment, struggling to make ends meet. One day, Ki-woo\'s friend Min-hyuk, who is leaving to study abroad, suggests that Ki-woo take over his job tutoring the daughter of the wealthy Park family. Ki-woo poses as a university student and is hired by the Parks. Impressed by Ki-woo, Mrs. Park asks him if he knows an art tutor for her young son; Ki-woo recommends his sister Ki-jung, who poses as "Jessica," an art therapy expert.',
+        url: 'https://en.wikipedia.org/wiki/Parasite_(2019_film)#Plot'
+      }
+    ]
+  },
+  'cast': {
+    heading: 'Example "Cast" sections from Wikipedia',
+    examples: [
+      {
+        title: 'Inception',
+        text: '<b>Leonardo DiCaprio</b> as Dom Cobb, a professional thief who specializes in extracting information from the subconscious. <b>Ken Watanabe</b> as Saito, a Japanese businessman who employs Cobb. <b>Joseph Gordon-Levitt</b> as Arthur, Cobb\'s partner. <b>Marion Cotillard</b> as Mal Cobb, Dom\'s deceased wife. <b>Elliot Page</b> as Ariadne, a graduate student of architecture recruited to construct the dream worlds.',
+        url: 'https://en.wikipedia.org/wiki/Inception#Cast'
+      }
+    ]
+  },
+  'reception': {
+    heading: 'Example "Reception" sections from Wikipedia',
+    examples: [
+      {
+        title: 'The Dark Knight',
+        text: 'The Dark Knight received widespread critical acclaim. On Rotten Tomatoes, the film holds an approval rating of 94% based on 345 reviews, with an average rating of 8.6/10. On Metacritic, the film has a score of 84 out of 100 based on 39 critics, indicating "universal acclaim". Roger Ebert of the Chicago Sun-Times gave the film four stars out of four and described it as a "haunted film that leaps beyond its origins and becomes an engrossing tragedy." The film won two Academy Awards: Best Sound Editing and Best Supporting Actor for Heath Ledger.',
+        url: 'https://en.wikipedia.org/wiki/The_Dark_Knight#Critical_response'
+      }
+    ]
+  },
+
+  // TV Series
+  'premise': {
+    heading: 'Example "Premise" sections from Wikipedia',
+    examples: [
+      {
+        title: 'Breaking Bad',
+        text: 'Set in Albuquerque, New Mexico, between 2008 and 2010, Breaking Bad follows Walter White, a struggling high school chemistry teacher who is diagnosed with inoperable, advanced lung cancer. Together with his former student Jesse Pinkman, White turns to a life of crime by producing and selling methamphetamine to secure his family\'s financial future before he dies, while navigating the dangers of the criminal underworld.',
+        url: 'https://en.wikipedia.org/wiki/Breaking_Bad#Premise'
+      }
+    ]
+  },
+
+  // Books
+  'themes': {
+    heading: 'Example "Themes" sections from Wikipedia',
+    examples: [
+      {
+        title: 'To Kill a Mockingbird',
+        text: 'Scholars have noted that Lee addresses issues of class, courage, compassion, and gender roles in the Deep South. The book is widely taught in schools in the United States with lessons that emphasize tolerance and decry prejudice. Despite its widespread use in classrooms, the novel has been the subject of campaigns for removal due to its use of racial epithets. The novel has been noted for its poignant exploration of different forms of courage and for Scout\'s progression from childhood innocence to a more adult perspective.',
+        url: 'https://en.wikipedia.org/wiki/To_Kill_a_Mockingbird#Themes'
+      }
+    ]
+  },
+
+  // Video Games
+  'gameplay': {
+    heading: 'Example "Gameplay" sections from Wikipedia',
+    examples: [
+      {
+        title: 'The Legend of Zelda: Breath of the Wild',
+        text: 'Breath of the Wild is an action-adventure game set in an open world where players are tasked with exploring the kingdom of Hyrule while controlling Link. Players can travel anywhere in the game world, discovering over 100 shrines (mini-dungeons) and four Divine Beasts (large dungeons). The game features a physics engine that allows for environmental interactions and puzzle-solving. Players can climb most surfaces, swim, paraglide, and cook meals that provide various benefits. Combat involves melee weapons, bows, and shields, with a weapon degradation system.',
+        url: 'https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild#Gameplay'
+      }
+    ]
+  },
+
+  // Companies
+  'history': {
+    heading: 'Example "History" sections from Wikipedia',
+    examples: [
+      {
+        title: 'Apple Inc.',
+        text: 'Apple Computer Company was founded on April 1, 1976, by Steve Jobs, Steve Wozniak, and Ronald Wayne as a partnership. The company\'s first product was the Apple I, a computer designed and hand-built entirely by Wozniak. To finance its creation, Jobs sold his Volkswagen Bus, and Wozniak sold his HP-65 calculator. In 1977, the Apple II was introduced, becoming one of the first highly successful mass-produced microcomputers. Apple went public on December 12, 1980, to instant financial success.',
+        url: 'https://en.wikipedia.org/wiki/Apple_Inc.#History'
+      }
+    ]
+  },
+  'products': {
+    heading: 'Example "Products and services" sections',
+    examples: [
+      {
+        title: 'Tesla, Inc.',
+        text: 'Tesla\'s automotive segment includes the design, development, manufacturing, sales, and leasing of electric vehicles as well as sales of automotive regulatory credits. Additionally, the segment includes services and other revenue, parts and accessories, sales of used vehicles, and vehicle insurance. Tesla currently produces four consumer vehicles: the Model S sedan, the Model X SUV, the Model 3 sedan, and the Model Y crossover. The company also produces the Tesla Semi, an all-electric commercial truck.',
+        url: 'https://en.wikipedia.org/wiki/Tesla,_Inc.#Products_and_services'
+      }
+    ]
+  },
+
+  // Buildings
+  'design': {
+    heading: 'Example "Architecture and design" sections',
+    examples: [
+      {
+        title: 'Sydney Opera House',
+        text: 'The Sydney Opera House is a modern expressionist design, with a series of large precast concrete "shells", each composed of sections of a sphere of 75.2 metres (246 ft 8.6 in) radius, forming the roofs of the structure. The building covers 1.8 hectares (4.4 acres) of land and is 183 m (600 ft) long and 120 m (394 ft) wide at its widest point. It is supported on 588 concrete piers sunk as much as 25 m (82 ft) below sea level.',
+        url: 'https://en.wikipedia.org/wiki/Sydney_Opera_House#Design'
+      }
+    ]
+  },
+
+  // Sports Teams
+  'achievements': {
+    heading: 'Example "Achievements" sections',
+    examples: [
+      {
+        title: 'Manchester United F.C.',
+        text: 'Manchester United have won a record 20 League titles, 12 FA Cups, 6 League Cups and a record 21 FA Community Shields. The club has also won three UEFA Champions League titles, one UEFA Europa League, one UEFA Cup Winners\' Cup, one UEFA Super Cup, one Intercontinental Cup and one FIFA Club World Cup. In 1968, under the management of Matt Busby, Manchester United became the first English club to win the European Cup.',
+        url: 'https://en.wikipedia.org/wiki/Manchester_United_F.C.#Honours'
+      }
+    ]
+  },
+
+  // Historical Events
+  'background': {
+    heading: 'Example "Background" sections',
+    examples: [
+      {
+        title: 'Apollo 11',
+        text: 'President John F. Kennedy announced in May 1961 that the United States should commit itself to achieving the goal, before the decade was out, of landing a man on the Moon and returning him safely to the Earth. This announcement was made in the context of the Cold War and the Space Race with the Soviet Union. The Soviets had achieved several firsts in space exploration: first artificial satellite (Sputnik 1), first human in space (Yuri Gagarin), and first spacewalk (Alexei Leonov).',
+        url: 'https://en.wikipedia.org/wiki/Apollo_11#Background'
+      }
+    ]
+  },
+  'legacy': {
+    heading: 'Example "Legacy" sections',
+    examples: [
+      {
+        title: 'Fall of the Berlin Wall',
+        text: 'The fall of the Berlin Wall paved the way for German reunification, which formally concluded on 3 October 1990. The fall of the Berlin Wall is considered a key moment in the collapse of communism in Eastern Europe and the end of the Cold War. November 9 is now celebrated as the "Day of Freedom and Unity" in Germany. The physical wall has been mostly removed, but some portions remain as memorials and tourist attractions, including the East Side Gallery, where artists have painted murals on a 1.3 km section of the wall.',
+        url: 'https://en.wikipedia.org/wiki/Berlin_Wall#Legacy'
+      }
+    ]
   }
 };
 
@@ -451,6 +594,356 @@ const SECTION_TEMPLATES = {
       ],
       link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability_(web)'
     }
+  },
+
+  // NEW TEMPLATES - 8 additional article types
+
+  // 1. Films
+  'culture-films': {
+    introduction: {
+      template: `'''[Film Title]''' is a [year] [genre] film directed by [director name]. The film stars [main cast] and follows [one-sentence plot summary].
+
+Released on [date] by [studio/distributor], the film [notable achievement or reception].`,
+      placeholder: 'Click to start writing about this film...'
+    },
+    sections: [
+      { id: 'plot', title: 'Plot', placeholder: 'Summarize the main story without revealing the ending. Focus on major plot points that are well-documented in sources.' },
+      { id: 'cast', title: 'Cast', placeholder: 'List principal cast members and their roles. Include any notable casting decisions documented in sources.' },
+      { id: 'production', title: 'Production', placeholder: 'Describe development, filming locations, budget, and production challenges documented in sources.' },
+      { id: 'music', title: 'Music and soundtrack', placeholder: 'Describe the film score, composer, and any notable songs if significantly covered in sources.' },
+      { id: 'release', title: 'Release', placeholder: 'Document theatrical release dates, box office performance, and home media releases from reliable sources.' },
+      { id: 'reception', title: 'Reception', placeholder: 'Summarize critical reception using reviews from established publications. Include awards and nominations.' }
+    ],
+    sectionGuidance: {
+      plot: {
+        title: 'Plot section guidance:',
+        points: [
+          'Keep summary concise (300-700 words typical)',
+          'Avoid excessive detail - focus on main story arc',
+          'No need to cite plot if watching the film verifies it',
+          'Avoid revealing surprise endings in opening paragraphs'
+        ]
+      },
+      reception: {
+        title: 'Reception requirements:',
+        points: [
+          'Cite professional reviews from established critics',
+          'Include aggregate scores (Rotten Tomatoes, Metacritic)',
+          'Balance positive and negative reception',
+          'Avoid user reviews - focus on professional criticism'
+        ]
+      }
+    },
+    guidelines: {
+      title: 'Film Article Guidelines',
+      points: [
+        'Must have theatrical or major streaming release',
+        'Cite professional film critics and trade publications',
+        'Include box office data from reliable tracking services',
+        'Maintain neutral tone when describing reception'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability_(films)'
+    }
+  },
+
+  // 2. TV Series
+  'culture-tv-series': {
+    introduction: {
+      template: `'''[Series Title]''' is a [genre] television series created by [creator name]. The series premiered on [date] on [network/platform] and [current status - e.g., concluded after X seasons / is currently airing].
+
+The show follows [brief premise] and stars [main cast members].`,
+      placeholder: 'Click to start writing about this TV series...'
+    },
+    sections: [
+      { id: 'premise', title: 'Premise', placeholder: 'Describe the basic setup, setting, and main characters. Keep it concise and well-sourced.' },
+      { id: 'cast', title: 'Cast and characters', placeholder: 'List main cast members and describe principal characters. Note any major casting changes.' },
+      { id: 'episodes', title: 'Episodes', placeholder: 'Provide an overview of seasons and episode count. Link to detailed episode lists if extensive.' },
+      { id: 'production', title: 'Production', placeholder: 'Describe development, filming locations, and production details documented in sources.' },
+      { id: 'broadcast', title: 'Broadcast and release', placeholder: 'Document original broadcast schedule, streaming availability, and international distribution.' },
+      { id: 'reception', title: 'Reception', placeholder: 'Summarize critical reception, ratings, awards, and cultural impact from reliable sources.' }
+    ],
+    sectionGuidance: {
+      premise: {
+        title: 'Premise guidance:',
+        points: [
+          'Describe core concept without episode-by-episode details',
+          'Focus on the overall story arc and setting',
+          'Mention genre and tone of the series',
+          'Keep to 2-3 paragraphs maximum'
+        ]
+      }
+    },
+    guidelines: {
+      title: 'TV Series Guidelines',
+      points: [
+        'Must have broadcast on television or major streaming platform',
+        'Cite TV critics, trade publications, and ratings data',
+        'Include Emmy/Golden Globe recognition if applicable',
+        'Avoid episode-by-episode plot summaries in main article'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability_(films)'
+    }
+  },
+
+  // 3. Books/Novels
+  'culture-literature-books': {
+    introduction: {
+      template: `'''[Book Title]''' is a [year] [genre] novel by [author name]. Published by [publisher], the book [brief description of subject matter].
+
+The novel [notable reception, awards, or significance].`,
+      placeholder: 'Click to start writing about this book...'
+    },
+    sections: [
+      { id: 'plot', title: 'Plot summary', placeholder: 'Provide a concise overview of the main story. Avoid excessive detail and spoilers.' },
+      { id: 'characters', title: 'Characters', placeholder: 'Describe major characters if significantly discussed in secondary sources.' },
+      { id: 'themes', title: 'Themes and analysis', placeholder: 'Discuss major themes and literary analysis from published criticism and reviews.' },
+      { id: 'publication', title: 'Publication history', placeholder: 'Document original publication, editions, translations documented in sources.' },
+      { id: 'reception', title: 'Reception and legacy', placeholder: 'Summarize critical reception, sales figures, awards, and lasting cultural impact.' },
+      { id: 'adaptations', title: 'Adaptations', placeholder: 'Document any film, TV, or stage adaptations if they exist and are well-sourced.' }
+    ],
+    sectionGuidance: {
+      plot: {
+        title: 'Plot summary guidance:',
+        points: [
+          'Keep summary brief (400-700 words typical)',
+          'Focus on main plot points and narrative arc',
+          'Avoid chapter-by-chapter breakdown',
+          'Balance detail with readability'
+        ]
+      },
+      themes: {
+        title: 'Themes section requirements:',
+        points: [
+          'Rely on published literary criticism',
+          'Cite academic sources and professional reviews',
+          'Avoid original research or personal interpretation',
+          'Focus on widely recognized themes'
+        ]
+      }
+    },
+    guidelines: {
+      title: 'Book Article Guidelines',
+      points: [
+        'Must have professional publication or significant coverage',
+        'Cite professional literary critics and reviews',
+        'Include publication data from reliable sources',
+        'Avoid plot-only articles - include reception and analysis'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability_(books)'
+    }
+  },
+
+  // 4. Video Games
+  'culture-video-games': {
+    introduction: {
+      template: `'''[Game Title]''' is a [year] [genre] video game developed by [developer] and published by [publisher]. Released for [platforms], the game [brief description of gameplay or story].
+
+The game [notable achievement, sales, or critical reception].`,
+      placeholder: 'Click to start writing about this video game...'
+    },
+    sections: [
+      { id: 'gameplay', title: 'Gameplay', placeholder: 'Describe core gameplay mechanics, objectives, and player interactions documented in sources.' },
+      { id: 'plot', title: 'Plot', placeholder: 'Summarize the story if narrative-focused. Keep concise and avoid excessive detail.' },
+      { id: 'development', title: 'Development', placeholder: 'Document development history, team, engine, and design decisions covered in sources.' },
+      { id: 'release', title: 'Release', placeholder: 'Document release dates, platforms, special editions, and post-launch content from sources.' },
+      { id: 'reception', title: 'Reception', placeholder: 'Summarize critical reviews from gaming publications. Include aggregate scores and sales data.' },
+      { id: 'legacy', title: 'Legacy', placeholder: 'Discuss lasting impact, sequels, awards, and cultural significance if well-documented.' }
+    },
+    sectionGuidance: {
+      gameplay: {
+        title: 'Gameplay section guidance:',
+        points: [
+          'Describe what players actually do in the game',
+          'Focus on core mechanics, not every feature',
+          'Use gaming publications as sources',
+          'Balance technical detail with accessibility'
+        ]
+      },
+      reception: {
+        title: 'Reception requirements:',
+        points: [
+          'Cite professional gaming publications',
+          'Include Metacritic/OpenCritic aggregate scores',
+          'Document sales figures from reliable sources',
+          'Include major gaming awards if won'
+        ]
+      }
+    },
+    guidelines: {
+      title: 'Video Game Article Guidelines',
+      points: [
+        'Must have commercial release or significant coverage',
+        'Cite professional gaming media and reviews',
+        'Include sales and player count data when available',
+        'Avoid excessive gameplay detail - focus on notable aspects'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability_(video_games)'
+    }
+  },
+
+  // 5. Companies
+  'society-companies': {
+    introduction: {
+      template: `'''[Company Name]''' is a [type of company] headquartered in [location]. Founded in [year] by [founder(s)], the company [primary business activity].
+
+[Notable fact about size, market position, or significance].`,
+      placeholder: 'Click to start writing about this company...'
+    },
+    sections: [
+      { id: 'history', title: 'History', placeholder: 'Describe founding, major milestones, acquisitions, and evolution documented in sources.' },
+      { id: 'products', title: 'Products and services', placeholder: 'Describe main products, services, and business lines covered in reliable sources.' },
+      { id: 'operations', title: 'Operations', placeholder: 'Describe business model, markets served, and operational structure from sources.' },
+      { id: 'financials', title: 'Financial performance', placeholder: 'Include revenue, profit, and market data from financial publications and filings.' },
+      { id: 'leadership', title: 'Leadership and governance', placeholder: 'List key executives and board structure if documented in reliable sources.' },
+      { id: 'reception', title: 'Reception and criticism', placeholder: 'Document media coverage, controversies, and public perception from reliable sources.' }
+    ],
+    sectionGuidance: {
+      financials: {
+        title: 'Financial section guidance:',
+        points: [
+          'Use official financial reports and SEC filings',
+          'Cite business publications like WSJ, Bloomberg, FT',
+          'Include revenue, profit, market cap if public',
+          'Update with most recent fiscal year data'
+        ]
+      }
+    },
+    guidelines: {
+      title: 'Company Article Guidelines',
+      points: [
+        'Must have significant independent media coverage',
+        'Cite business publications and financial sources',
+        'Maintain neutral tone - avoid promotional language',
+        'Include both positive and critical coverage'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability_(organizations_and_companies)'
+    }
+  },
+
+  // 6. Buildings/Landmarks
+  'geography-buildings': {
+    introduction: {
+      template: `'''[Building Name]''' is a [type of building] located in [location]. Completed in [year], the structure was designed by [architect] and [primary use or purpose].
+
+The building [notable architectural feature or historical significance].`,
+      placeholder: 'Click to start writing about this building...'
+    },
+    sections: [
+      { id: 'design', title: 'Architecture and design', placeholder: 'Describe architectural style, materials, notable features documented in sources.' },
+      { id: 'history', title: 'History', placeholder: 'Document construction, ownership changes, renovations, and historical context from sources.' },
+      { id: 'features', title: 'Notable features', placeholder: 'Describe significant interior/exterior elements, innovations, or unique characteristics.' },
+      { id: 'use', title: 'Current use', placeholder: 'Describe current function, tenants, or public access from reliable sources.' },
+      { id: 'significance', title: 'Cultural significance', placeholder: 'Discuss heritage status, architectural importance, and cultural impact from sources.' },
+      { id: 'reception', title: 'Reception', placeholder: 'Include critical reception from architectural critics and publications.' }
+    },
+    sectionGuidance: {
+      design: {
+        title: 'Architecture section guidance:',
+        points: [
+          'Cite architectural publications and historians',
+          'Describe style and notable design elements',
+          'Include dimensions and materials if significant',
+          'Explain design in accessible language'
+        ]
+      }
+    },
+    guidelines: {
+      title: 'Building Article Guidelines',
+      points: [
+        'Must have architectural or historical significance',
+        'Cite architectural publications and historians',
+        'Include heritage designations if applicable',
+        'Document with reliable sources, not just local coverage'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability_(organizations_and_companies)'
+    }
+  },
+
+  // 7. Sports Teams
+  'society-sports-teams': {
+    introduction: {
+      template: `'''[Team Name]''' is a professional [sport] team based in [location]. Founded in [year], the team competes in [league] and plays home games at [venue].
+
+The team has won [championships or notable achievements].`,
+      placeholder: 'Click to start writing about this sports team...'
+    },
+    sections: [
+      { id: 'history', title: 'History', placeholder: 'Describe founding, major eras, relocations, and historical milestones documented in sources.' },
+      { id: 'stadium', title: 'Stadium and facilities', placeholder: 'Describe home venue, capacity, facilities, and any notable features from sources.' },
+      { id: 'rivalries', title: 'Rivalries', placeholder: 'Document major rivalries if well-covered in sports media and publications.' },
+      { id: 'achievements', title: 'Achievements and records', placeholder: 'List championships, titles, and major records from official league sources.' },
+      { id: 'players', title: 'Notable players', placeholder: 'Mention historically significant players, Hall of Famers, or retired numbers.' },
+      { id: 'culture', title: 'Fan culture and support', placeholder: 'Describe fan base, traditions, and support if significantly documented in sources.' }
+    },
+    sectionGuidance: {
+      achievements: {
+        title: 'Achievements section guidance:',
+        points: [
+          'Use official league records and statistics',
+          'Include championships and major titles',
+          'List division/conference titles if space allows',
+          'Cite sports publications and official sources'
+        ]
+      }
+    },
+    guidelines: {
+      title: 'Sports Team Guidelines',
+      points: [
+        'Must compete in established professional league',
+        'Cite sports publications and official league sources',
+        'Include verifiable statistics and records',
+        'Maintain neutral tone in rivalry descriptions'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability_(sports)'
+    }
+  },
+
+  // 8. Historical Events
+  'history-events': {
+    introduction: {
+      template: `The '''[Event Name]''' was a [type of event] that took place on [date] in [location]. The event [brief description of what happened].
+
+The event [significance or lasting impact].`,
+      placeholder: 'Click to start writing about this historical event...'
+    },
+    sections: [
+      { id: 'background', title: 'Background', placeholder: 'Describe historical context and circumstances leading to the event from historical sources.' },
+      { id: 'event', title: 'Event', placeholder: 'Describe what happened chronologically. Use primary and secondary historical sources.' },
+      { id: 'participants', title: 'Key participants', placeholder: 'Identify major individuals or groups involved, documented in historical sources.' },
+      { id: 'aftermath', title: 'Aftermath', placeholder: 'Describe immediate consequences and short-term impacts documented in sources.' },
+      { id: 'legacy', title: 'Legacy and significance', placeholder: 'Discuss long-term impact and historical interpretation from scholarly sources.' },
+      { id: 'commemoration', title: 'Commemoration', placeholder: 'Document memorials, anniversaries, or how the event is remembered if significant.' }
+    ],
+    sectionGuidance: {
+      background: {
+        title: 'Background section guidance:',
+        points: [
+          'Provide context necessary to understand the event',
+          'Cite historical scholarship and primary sources',
+          'Keep focused on directly relevant background',
+          'Avoid excessive detail about preceding years'
+        ]
+      },
+      legacy: {
+        title: 'Legacy section requirements:',
+        points: [
+          'Cite historical scholarship and analysis',
+          'Discuss historiography if significantly debated',
+          'Explain lasting impact on subsequent events',
+          'Include diverse scholarly perspectives'
+        ]
+      }
+    },
+    guidelines: {
+      title: 'Historical Event Guidelines',
+      points: [
+        'Must have significant historical importance',
+        'Cite academic historians and scholarly sources',
+        'Include multiple perspectives when events are disputed',
+        'Use primary sources alongside secondary analysis'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability_(events)'
+    }
   }
 };
 
@@ -486,6 +979,63 @@ const RECOMMENDED_SOURCES = {
     { name: 'The Verge', url: 'https://www.theverge.com' },
     { name: 'Ars Technica', url: 'https://arstechnica.com' },
     { name: 'ZDNet', url: 'https://www.zdnet.com' }
+  ],
+
+  // NEW ARTICLE TYPE SOURCES
+  'culture-films': [
+    { name: 'Variety', url: 'https://variety.com' },
+    { name: 'The Hollywood Reporter', url: 'https://www.hollywoodreporter.com' },
+    { name: 'IndieWire', url: 'https://www.indiewire.com' },
+    { name: 'Rotten Tomatoes', url: 'https://www.rottentomatoes.com' },
+    { name: 'Box Office Mojo', url: 'https://www.boxofficemojo.com' }
+  ],
+  'culture-tv-series': [
+    { name: 'Variety', url: 'https://variety.com' },
+    { name: 'The Hollywood Reporter', url: 'https://www.hollywoodreporter.com' },
+    { name: 'Deadline', url: 'https://deadline.com' },
+    { name: 'TV Guide', url: 'https://www.tvguide.com' },
+    { name: 'Entertainment Weekly', url: 'https://ew.com' }
+  ],
+  'culture-literature-books': [
+    { name: 'The New York Times Books', url: 'https://www.nytimes.com/section/books' },
+    { name: 'The Guardian Books', url: 'https://www.theguardian.com/books' },
+    { name: 'Publishers Weekly', url: 'https://www.publishersweekly.com' },
+    { name: 'Kirkus Reviews', url: 'https://www.kirkusreviews.com' },
+    { name: 'Goodreads', url: 'https://www.goodreads.com' }
+  ],
+  'culture-video-games': [
+    { name: 'IGN', url: 'https://www.ign.com' },
+    { name: 'GameSpot', url: 'https://www.gamespot.com' },
+    { name: 'Polygon', url: 'https://www.polygon.com' },
+    { name: 'Eurogamer', url: 'https://www.eurogamer.net' },
+    { name: 'Metacritic', url: 'https://www.metacritic.com' }
+  ],
+  'society-companies': [
+    { name: 'Bloomberg', url: 'https://www.bloomberg.com' },
+    { name: 'Wall Street Journal', url: 'https://www.wsj.com' },
+    { name: 'Financial Times', url: 'https://www.ft.com' },
+    { name: 'Forbes', url: 'https://www.forbes.com' },
+    { name: 'Reuters', url: 'https://www.reuters.com' }
+  ],
+  'geography-buildings': [
+    { name: 'Architectural Digest', url: 'https://www.architecturaldigest.com' },
+    { name: 'Dezeen', url: 'https://www.dezeen.com' },
+    { name: 'ArchDaily', url: 'https://www.archdaily.com' },
+    { name: 'The Architect\'s Newspaper', url: 'https://www.archpaper.com' }
+  ],
+  'society-sports-teams': [
+    { name: 'ESPN', url: 'https://www.espn.com' },
+    { name: 'Sports Illustrated', url: 'https://www.si.com' },
+    { name: 'The Athletic', url: 'https://theathletic.com' },
+    { name: 'BBC Sport', url: 'https://www.bbc.com/sport' },
+    { name: 'Official League Website', url: '#' }
+  ],
+  'history-events': [
+    { name: 'History.com', url: 'https://www.history.com' },
+    { name: 'Britannica', url: 'https://www.britannica.com' },
+    { name: 'Smithsonian Magazine', url: 'https://www.smithsonianmag.com' },
+    { name: 'National Archives', url: 'https://www.archives.gov' },
+    { name: 'Academic journals (JSTOR)', url: 'https://www.jstor.org' }
   ]
 };
 
@@ -527,16 +1077,33 @@ const WIKIPEDIA_CATEGORIES = [
     subcategories: [
       { id: 'arts', name: 'Arts & Entertainment', hasGranularTypes: false, template: 'culture-default' },
       {
-        id: 'film-music',
-        name: 'Film & Music',
+        id: 'film-tv',
+        name: 'Film & Television',
         hasGranularTypes: true,
         types: [
           { id: 'films', name: 'Films', template: 'culture-films' },
-          { id: 'music-albums', name: 'Music albums', template: 'culture-music' },
+          { id: 'tv-series', name: 'TV Series', template: 'culture-tv-series' },
           { id: 'general', name: 'Other', template: 'culture-default' }
         ]
       },
-      { id: 'literature', name: 'Literature', hasGranularTypes: false, template: 'culture-default' },
+      {
+        id: 'literature',
+        name: 'Literature',
+        hasGranularTypes: true,
+        types: [
+          { id: 'books', name: 'Books & Novels', template: 'culture-literature-books' },
+          { id: 'general', name: 'Other', template: 'culture-default' }
+        ]
+      },
+      {
+        id: 'gaming',
+        name: 'Video Games',
+        hasGranularTypes: true,
+        types: [
+          { id: 'video-games', name: 'Video games', template: 'culture-video-games' },
+          { id: 'general', name: 'Other', template: 'culture-default' }
+        ]
+      },
       { id: 'performing', name: 'Performing Arts', hasGranularTypes: false, template: 'culture-default' },
       { id: 'popular', name: 'Popular Culture', hasGranularTypes: false, template: 'culture-default' },
       { id: 'museums', name: 'Museums & Galleries', hasGranularTypes: false, template: 'culture-default' },
@@ -551,7 +1118,15 @@ const WIKIPEDIA_CATEGORIES = [
     subcategories: [
       { id: 'cities', name: 'Cities & Towns', hasGranularTypes: false, template: 'geography-default' },
       { id: 'countries', name: 'Countries', hasGranularTypes: false, template: 'geography-default' },
-      { id: 'landmarks', name: 'Landmarks', hasGranularTypes: false, template: 'geography-default' },
+      {
+        id: 'landmarks',
+        name: 'Landmarks & Buildings',
+        hasGranularTypes: true,
+        types: [
+          { id: 'buildings', name: 'Buildings & Architecture', template: 'geography-buildings' },
+          { id: 'general', name: 'Other landmarks', template: 'geography-default' }
+        ]
+      },
       { id: 'natural', name: 'Natural features', hasGranularTypes: false, template: 'geography-default' },
       { id: 'other', name: 'Other', hasGranularTypes: false, template: 'geography-default' }
     ]
@@ -566,7 +1141,15 @@ const WIKIPEDIA_CATEGORIES = [
       { id: 'medieval', name: 'Medieval History', hasGranularTypes: false, template: 'history-default' },
       { id: 'modern', name: 'Modern History', hasGranularTypes: false, template: 'history-default' },
       { id: 'wars', name: 'Wars & Conflicts', hasGranularTypes: false, template: 'history-default' },
-      { id: 'events', name: 'Historical Events', hasGranularTypes: false, template: 'history-default' },
+      {
+        id: 'events',
+        name: 'Historical Events',
+        hasGranularTypes: true,
+        types: [
+          { id: 'major-events', name: 'Major historical events', template: 'history-events' },
+          { id: 'general', name: 'Other', template: 'history-default' }
+        ]
+      },
       { id: 'other', name: 'Other', hasGranularTypes: false, template: 'history-default' }
     ]
   },
@@ -616,7 +1199,16 @@ const WIKIPEDIA_CATEGORIES = [
       { id: 'education', name: 'Education', hasGranularTypes: false, template: 'society-default' },
       { id: 'law', name: 'Law & Legal', hasGranularTypes: false, template: 'society-default' },
       { id: 'politics', name: 'Politics & Government', hasGranularTypes: false, template: 'society-default' },
-      { id: 'orgs', name: 'Organizations', hasGranularTypes: false, template: 'society-default' },
+      {
+        id: 'orgs',
+        name: 'Organizations & Companies',
+        hasGranularTypes: true,
+        types: [
+          { id: 'companies', name: 'Companies & Businesses', template: 'society-companies' },
+          { id: 'sports-teams', name: 'Sports teams', template: 'society-sports-teams' },
+          { id: 'general', name: 'Other organizations', template: 'society-default' }
+        ]
+      },
       { id: 'economics', name: 'Economics', hasGranularTypes: false, template: 'society-default' },
       { id: 'military', name: 'Military', hasGranularTypes: false, template: 'society-default' },
       { id: 'other', name: 'Other', hasGranularTypes: false, template: 'society-default' }
