@@ -150,27 +150,30 @@ body {
 }
 
 .ve-bar {
-  background: #fff;
+  background: #f8f9fa;
   border-bottom: 1px solid var(--border-soft);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-  padding: 8px 0;
-  display: flex; 
-  align-items: center; 
-  flex-wrap: wrap; 
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 .group {
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   height: var(--toolbar-h);
-  padding: 0 12px;
-  border-left: 1px solid var(--border-soft);
+  padding: 0 8px;
+  gap: 4px;
   position: relative;
 }
 
+.group:not(:first-child) {
+  border-left: 1px solid #c8ccd1;
+}
+
 .group:first-child {
-  border-left: none; 
   padding-left: 0;
 }
 
@@ -183,23 +186,25 @@ body {
 }
 
 .btn, .dropdown {
-  display: inline-flex; 
-  align-items: center; 
+  display: inline-flex;
+  align-items: center;
   height: 32px;
-  padding: 0 8px; 
+  padding: 0 10px;
   margin-right: 4px;
-  border: 1px solid transparent; 
-  border-radius: 2px;
-  background: transparent; 
-  cursor: pointer; 
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
   user-select: none;
-  line-height: 32px; 
-  font-size: 13px;
+  line-height: 32px;
+  font-size: 14px;
   position: relative;
+  color: var(--text);
 }
 
 .btn:hover, .dropdown:hover {
-  background: var(--background-color-neutral-subtle, #eaecf0);
+  border-color: var(--border);
+  background: #fff;
 }
 
 .btn[disabled] {
@@ -216,16 +221,18 @@ body {
   margin-left: 4px;
 }
 
-.publish-btn {
-  background: var(--progressive);
-  color: #fff;
-  border-color: var(--progressive);
-  padding: 0 12px;
+.publish-btn, .submit-btn {
+  background: var(--progressive) !important;
+  color: #fff !important;
+  border-color: var(--progressive) !important;
+  padding: 0 16px !important;
+  font-weight: 500;
 }
 
-.publish-btn:hover {
-  background: #2a4b8d;
-  border-color: #2a4b8d;
+.publish-btn:hover, .submit-btn:hover {
+  background: #2a4b8d !important;
+  border-color: #2a4b8d !important;
+  color: #fff !important;
 }
 
 .cdx-icon {
@@ -398,12 +405,15 @@ select:focus {
   }
 
   .mobile-toolbar .submit-btn {
-    color: #3366cc;
+    background: var(--progressive) !important;
+    color: #fff !important;
+    border-color: var(--progressive) !important;
   }
 
   .mobile-toolbar .submit-btn:hover {
-    background: rgba(51, 102, 204, 0.1);
-    color: #3366cc;
+    background: #2a4b8d !important;
+    color: #fff !important;
+    border-color: #2a4b8d !important;
   }
 
   .mobile-toolbar .cdx-button__label {
