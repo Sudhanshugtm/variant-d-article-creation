@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Smart Article Creation - Wikipedia</title>
+  <link rel="stylesheet" href="./chrome.css">
+  <link rel="stylesheet" href="https://unpkg.com/@wikimedia/codex@2.3.0/dist/codex.style.css">
+  <link rel="stylesheet" href="./variant-d.css">
+  <style>
+    /* Smart Flow Onboarding Styles */
+    .smart-onboarding {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .smart-onboarding.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .smart-form-container {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .smart-form-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .smart-form-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .smart-form-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #202122;
+      margin-bottom: 0.5rem;
+    }
+
+    .smart-form-header p {
+      color: #54595d;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      color: #202122;
+      margin-bottom: 0.5rem;
+      font-size: 0.9375rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 2px solid #c8ccd1;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #36c;
+    }
+
+    .form-input::placeholder {
+      color: #72777d;
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 2px solid #c8ccd1;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: white;
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-select:focus {
+      outline: none;
+      border-color: #36c;
+    }
+
+    .form-hint {
+      font-size: 0.875rem;
+      color: #72777d;
+      margin-top: 0.5rem;
+    }
+
+    .generate-btn {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(90deg, #f093fb, #f5576c);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .generate-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+    }
+
+    .generate-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .generate-btn .spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    .generate-btn.loading .spinner {
+      display: block;
+    }
+
+    .generate-btn.loading .btn-text {
+      display: none;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #54595d;
+      text-decoration: none;
+      font-size: 0.9375rem;
+      margin-bottom: 1.5rem;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: #202122;
+    }
+
+    /* Loading State */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loading-overlay.active {
+      display: flex;
+    }
+
+    .loading-content {
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .loading-spinner {
+      width: 60px;
+      height: 60px;
+      border: 4px solid #e8eaed;
+      border-top-color: #f5576c;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+
+    .loading-content h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #202122;
+      margin-bottom: 0.5rem;
+    }
+
+    .loading-content p {
+      color: #54595d;
+      font-size: 0.9375rem;
+    }
+
+    /* Error State */
+    .error-message {
+      background: #fee7e6;
+      border-left: 4px solid #d33;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .error-message.active {
+      display: block;
+    }
+
+    .error-message p {
+      color: #d33;
+      font-size: 0.9375rem;
+      margin: 0;
+    }
+
+    @media (max-width: 640px) {
+      .smart-form-container {
+        padding: 2rem 1.5rem;
+      }
+
+      .smart-form-header h1 {
+        font-size: 1.75rem;
+      }
+
+      .smart-form-icon {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Smart Onboarding Form -->
+  <div id="smartOnboarding" class="smart-onboarding">
+    <div class="smart-form-container">
+      <a href="index.html" class="back-link">
+        <span>←</span>
+        <span>Back to options</span>
+      </a>
+
+      <div class="smart-form-header">
+        <div class="smart-form-icon">🚀</div>
+        <h1>Smart Quick Start</h1>
+        <p>Tell us about your article and we'll create a perfect outline for you using AI</p>
+      </div>
+
+      <form id="smartForm">
+        <div class="form-group">
+          <label for="articleTitle" class="form-label">Article Title *</label>
+          <input
+            type="text"
+            id="articleTitle"
+            class="form-input"
+            placeholder="e.g., Virat Kohli, Eiffel Tower, Python Programming..."
+            required
+            autocomplete="off"
+          >
+          <p class="form-hint">Enter the topic or subject of your Wikipedia article</p>
+        </div>
+
+        <div class="form-group">
+          <label for="articleLanguage" class="form-label">Language *</label>
+          <select id="articleLanguage" class="form-select" required>
+            <option value="en">English</option>
+            <option value="es">Spanish (Español)</option>
+            <option value="fr">French (Français)</option>
+            <option value="de">German (Deutsch)</option>
+            <option value="it">Italian (Italiano)</option>
+            <option value="pt">Portuguese (Português)</option>
+            <option value="ru">Russian (Русский)</option>
+            <option value="ja">Japanese (日本語)</option>
+            <option value="zh">Chinese (中文)</option>
+            <option value="ar">Arabic (العربية)</option>
+            <option value="hi">Hindi (हिन्दी)</option>
+            <option value="bn">Bengali (বাংলা)</option>
+            <option value="ko">Korean (한국어)</option>
+            <option value="vi">Vietnamese (Tiếng Việt)</option>
+            <option value="id">Indonesian (Bahasa Indonesia)</option>
+            <option value="nl">Dutch (Nederlands)</option>
+            <option value="pl">Polish (Polski)</option>
+            <option value="sv">Swedish (Svenska)</option>
+            <option value="uk">Ukrainian (Українська)</option>
+            <option value="tr">Turkish (Türkçe)</option>
+          </select>
+          <p class="form-hint">Select the language for your article</p>
+        </div>
+
+        <div class="form-group">
+          <label for="additionalContext" class="form-label">Additional Context (Optional)</label>
+          <input
+            type="text"
+            id="additionalContext"
+            class="form-input"
+            placeholder="e.g., Indian cricket player, French landmark..."
+            autocomplete="off"
+          >
+          <p class="form-hint">Provide extra details to help us generate a better outline</p>
+        </div>
+
+        <div class="error-message" id="errorMessage">
+          <p id="errorText"></p>
+        </div>
+
+        <button type="submit" class="generate-btn" id="generateBtn">
+          <span class="spinner"></span>
+          <span class="btn-text">Generate Outline with AI ✨</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <h3>Creating your outline...</h3>
+      <p>Our AI is analyzing your topic and generating a customized article structure</p>
+    </div>
+  </div>
+
+  <!-- Main Editor (initially hidden) -->
+  <div class="ve-interface ve-interface--prototype" style="display: none;" id="editorInterface">
+    <header class="container page-header" role="banner">
+      <h1 class="firstHeading" id="articleHeading">New Article</h1>
+      <div class="page-tabs-wrapper">
+        <nav class="ns-tabs" aria-label="Namespace tabs">
+          <button class="ns-tab active">Article</button>
+          <button class="ns-tab">Talk</button>
+        </nav>
+        <nav class="page-actions" aria-label="Page actions">
+          <button class="action-tab">
+            <span class="action-tab-text">Read</span>
+            <span class="action-tab-icon cdx-icon" data-icon="cdxIconArticle"></span>
+          </button>
+          <button class="action-tab active">
+            <span class="action-tab-text">Edit</span>
+            <span class="action-tab-icon cdx-icon" data-icon="cdxIconEdit"></span>
+          </button>
+          <button class="action-tab">
+            <span class="action-tab-text">View history</span>
+            <span class="action-tab-icon cdx-icon" data-icon="cdxIconHistory"></span>
+          </button>
+          <button class="action-tab star">
+            <span class="action-tab-text">⭐</span>
+            <span class="action-tab-icon cdx-icon" data-icon="cdxIconStar"></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <div class="ve-strip" role="region" aria-label="Editing toolbar">
+      <div class="ve-bar">
+        <div class="mobile-toolbar">
+          <button class="btn" id="close" title="Close"><span class="cdx-icon" data-icon="cdxIconClose"></span></button>
+          <button class="btn" id="undo" title="Undo"><span class="cdx-icon" data-icon="cdxIconUndo"></span></button>
+          <div class="dropdown" id="dd-style-mobile">
+            <span class="cdx-icon" data-icon="cdxIconTextStyle"></span>
+            <span class="caret" aria-hidden="true"></span>
+          </div>
+          <button class="btn" id="quote" title="Quote"><span class="cdx-icon" data-icon="cdxIconQuotes"></span></button>
+          <button class="btn" id="btn-link-mobile" title="Add link"><span class="cdx-icon" data-icon="cdxIconLink"></span></button>
+          <div class="dropdown" id="dd-edit-mobile">
+            <span class="cdx-icon" data-icon="cdxIconEdit"></span>
+            <span class="caret" aria-hidden="true"></span>
+          </div>
+          <button class="btn submit-btn" id="submit" title="Submit" style="margin-left: auto;">
+            <span class="cdx-icon" data-icon="cdxIconNext">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"></path></svg>
+            </span>
+          </button>
+        </div>
+
+        <div class="desktop-toolbar">
+          <div class="group tight">
+            <button class="btn" id="undo-desktop" title="Undo"><span class="cdx-icon" data-icon="cdxIconUndo"></span></button>
+            <button class="btn" id="redo" title="Redo"><span class="cdx-icon" data-icon="cdxIconRedo"></span></button>
+          </div>
+          <div class="group">
+            <div class="dropdown" id="dd-paragraph">
+              <span class="cdx-icon" data-icon="cdxIconTextHeading"></span>
+              <span class="cdx-button__label">Paragraph</span>
+              <span class="caret" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="group">
+            <div class="dropdown" id="dd-style">
+              <span class="cdx-icon" data-icon="cdxIconTextStyle"></span>
+              <span class="caret" aria-hidden="true"></span>
+            </div>
+            <button class="btn" id="bold" title="Bold"><strong>B</strong></button>
+            <button class="btn" id="italic" title="Italic"><em>I</em></button>
+            <button class="btn" id="underline" title="Underline"><span class="cdx-icon" data-icon="cdxIconUnderline"></span></button>
+          </div>
+          <div class="group">
+            <button class="btn" id="desktop-link" title="Add link"><span class="cdx-icon" data-icon="cdxIconLink"></span></button>
+            <button class="btn" id="media" title="Insert media"><span class="cdx-icon" data-icon="cdxIconImage"></span></button>
+            <button class="btn" id="template" title="Insert template"><span class="cdx-icon" data-icon="cdxIconPuzzle"></span></button>
+          </div>
+          <div class="group">
+            <button class="btn submit-btn" id="submit-desktop" title="Publish changes">
+              <span class="cdx-icon" data-icon="cdxIconNext">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"></path></svg>
+              </span>
+              <span class="cdx-button__label">Publish</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="ve-prototype-body">
+    <div id="canvas" class="ve-prototype-editor" contenteditable="true" aria-live="polite" data-placeholder='Start writing...'></div>
+  </main>
+
+  <script type="module" src="./smart-flow.js"></script>
+</body>
+</html>
