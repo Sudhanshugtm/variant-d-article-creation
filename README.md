@@ -2,6 +2,12 @@
 
 A mobile-first article creation interface with category selection, section templates, and contextual guidance.
 
+## 🌐 Live Demo
+
+**👉 [Try it now: https://sudhanshugtm.github.io/variant-d-article-creation/variant-d.html](https://sudhanshugtm.github.io/variant-d-article-creation/variant-d.html)**
+
+> **Note:** It may take 1-2 minutes for GitHub Pages to build and deploy. If the link doesn't work immediately, please wait a moment and refresh.
+
 ## 🎯 Overview
 
 **Variant D** ("Inline Section Cards") is a comprehensive Wikipedia article creation prototype featuring:
