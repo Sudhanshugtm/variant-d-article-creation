@@ -1,0 +1,487 @@
+/* ABOUTME: Main stylesheet for Wikipedia-style Visual Editor interface
+   ABOUTME: Contains all styling for layout, toolbar, editor and interactive elements */
+
+:root {
+  --bg: var(--background-color-base, #fff);
+  --surface: var(--background-color-neutral, #fff);
+  --border: var(--border-color-subtle, #a2a9b1);
+  --border-soft: var(--border-color-subtle, #c8ccd1);
+  --text: var(--color-base, #202122);
+  --subtle: var(--color-subtle, #54595d);
+  --progressive: var(--color-progressive, #36c);
+  --progressive-subtle: var(--background-color-progressive-subtle, #eaf3ff);
+  --shadow-1: 0 1px 0 rgba(0,0,0,.06);
+  --shadow-2: 0 2px 6px rgba(0,0,0,.06);
+  --max: 1100px;
+  --toolbar-h: 36px;
+  --radius: 6px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0; 
+  background: var(--bg); 
+  color: var(--text);
+  font: 14px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+}
+
+.container {
+  max-width: var(--max); 
+  margin: 0 auto; 
+  padding: 0 20px;
+}
+
+/* ===== Top title block ===== */
+.page-header {
+  padding-top: 40px;
+}
+
+.firstHeading {
+  font-size: 28px; 
+  font-weight: 400; 
+  margin: 0 0 8px;
+  padding: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* Page tabs wrapper */
+.page-tabs-wrapper {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+  margin-left: -20px;
+  padding-left: 20px;
+}
+
+/* Namespace tabs (Article / Talk) */
+.ns-tabs {
+  display: flex; 
+  gap: 1px;
+}
+
+.ns-tab {
+  appearance: none; 
+  background: transparent; 
+  color: #3366cc;
+  border: none; 
+  border-top-left-radius: 4px; 
+  border-top-right-radius: 4px;
+  padding: 8px 16px 8px 0; 
+  font: inherit; 
+  cursor: pointer; 
+  position: relative;
+  margin-bottom: -1px;
+}
+
+.ns-tab:hover {
+  background: var(--background-color-neutral-subtle, #f8f9fa);
+  color: #202122;
+}
+
+.ns-tab.active {
+  color: #202122;
+  background: #fff;
+  border: none;
+}
+
+.ns-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--progressive);
+}
+
+/* Page actions (Read/Edit/View history) */
+.page-actions {
+  display: flex; 
+  gap: 4px;
+}
+
+.action-tab {
+  appearance: none; 
+  background: transparent; 
+  color: var(--progressive);
+  border: 0; 
+  padding: 8px 16px 7px; 
+  font: inherit; 
+  cursor: pointer;
+  border-top-left-radius: 4px; 
+  border-top-right-radius: 4px;
+  border: 1px solid transparent;
+  margin-bottom: -1px;
+}
+
+.action-tab:hover {
+  background: var(--background-color-neutral-subtle, #f8f9fa);
+}
+
+.action-tab.active {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-bottom-color: #fff;
+}
+
+.action-tab.star {
+  padding: 8px 12px 7px;
+}
+
+.tagline {
+  color: var(--subtle); 
+  font-size: 13px; 
+  margin: 12px 0 16px;
+}
+
+/* ===== VE toolbar strip ===== */
+.ve-strip {
+  position: sticky; 
+  top: 0; 
+  z-index: 50;
+  max-width: var(--max);
+  margin: 0 auto 16px auto;
+  padding: 0;
+}
+
+.ve-bar {
+  background: #fff;
+  border-bottom: 1px solid var(--border-soft);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  padding: 8px 0;
+  display: flex; 
+  align-items: center; 
+  flex-wrap: wrap; 
+  gap: 8px;
+}
+
+.group {
+  display: flex; 
+  align-items: center; 
+  height: var(--toolbar-h);
+  padding: 0 12px;
+  border-left: 1px solid var(--border-soft);
+  position: relative;
+}
+
+.group:first-child {
+  border-left: none; 
+  padding-left: 0;
+}
+
+.group.tight {
+  padding: 0 4px;
+}
+
+.group.tight .btn {
+  margin-right: 2px;
+}
+
+.btn, .dropdown {
+  display: inline-flex; 
+  align-items: center; 
+  height: 32px;
+  padding: 0 8px; 
+  margin-right: 4px;
+  border: 1px solid transparent; 
+  border-radius: 2px;
+  background: transparent; 
+  cursor: pointer; 
+  user-select: none;
+  line-height: 32px; 
+  font-size: 13px;
+  position: relative;
+}
+
+.btn:hover, .dropdown:hover {
+  background: var(--background-color-neutral-subtle, #eaecf0);
+}
+
+.btn[disabled] {
+  opacity: .45; 
+  cursor: default;
+}
+
+.caret {
+  width: 0; 
+  height: 0; 
+  border-left: 3px solid transparent; 
+  border-right: 3px solid transparent; 
+  border-top: 4px solid currentColor; 
+  margin-left: 4px;
+}
+
+.publish-btn {
+  background: var(--progressive);
+  color: #fff;
+  border-color: var(--progressive);
+  padding: 0 12px;
+}
+
+.publish-btn:hover {
+  background: #2a4b8d;
+  border-color: #2a4b8d;
+}
+
+.cdx-icon {
+  width: 20px; 
+  height: 20px; 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
+}
+
+.cdx-button__label {
+  font-size: 13px;
+}
+
+/* Menus */
+.menu {
+  position: absolute; 
+  background: #fff; 
+  border: 1px solid var(--border-soft);
+  border-radius: 6px; 
+  box-shadow: var(--shadow-2); 
+  min-width: 220px; 
+  padding: 6px 0; 
+  display: none; 
+  z-index: 9999;
+  top: calc(100% + 4px);
+  left: 0;
+}
+
+.menu.open {
+  display: block;
+}
+
+.menu button {
+  width: 100%; 
+  text-align: left; 
+  padding: 8px 12px; 
+  border: 0; 
+  background: #fff; 
+  font: inherit; 
+  cursor: pointer;
+}
+
+.menu button:hover {
+  background: var(--background-color-neutral-hover, #f6f6f6);
+}
+
+/* Content */
+.content-wrap {
+  max-width: var(--max); 
+  margin: 12px auto 28px; 
+  padding: 0 20px;
+}
+
+.surface {
+  background: #fff;
+}
+
+#editor {
+  min-height: 560px; 
+  padding: 18px 0;
+}
+
+/* Override Quill's default borders and shadows */
+#editor.ql-container {
+  border: none !important; 
+  box-shadow: none !important;
+}
+
+.ql-editor {
+  border: none !important; 
+  box-shadow: none !important;
+}
+
+.status {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px 14px; 
+  color: var(--subtle);
+  border-top: 1px solid var(--border-soft);
+  background: #fff;
+}
+
+.badge {
+  display: inline-block; 
+  padding: 2px 8px; 
+  border-radius: 999px; 
+  background: var(--progressive-subtle); 
+  color: var(--progressive); 
+  font-size: 12px;
+}
+
+/* Inputs: ensure borders don't disappear */
+input[type="text"], 
+input[type="search"], 
+input[type="email"], 
+input[type="url"], 
+textarea, 
+select {
+  border: 1px solid var(--border-soft);
+  background: #fff; 
+  color: var(--text);
+  border-radius: 2px; 
+  padding: 6px 8px; 
+  font: inherit;
+}
+
+input:focus, 
+textarea:focus, 
+select:focus {
+  outline: none; 
+  border-color: var(--progressive);
+  box-shadow: 0 0 0 1px var(--progressive-subtle);
+}
+
+/* ===== Mobile Responsive Styles ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
+
+  /* Hide header completely in mobile editing mode */
+  .page-header {
+    display: none;
+  }
+
+  /* Mobile toolbar */
+  .ve-strip {
+    margin: 0;
+    max-width: none;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+
+  .ve-bar {
+    padding: 8px 12px;
+    gap: 4px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--border-soft);
+    margin: 0;
+  }
+
+  /* Mobile toolbar */
+  .mobile-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .desktop-toolbar {
+    display: none;
+  }
+
+  .mobile-toolbar .btn,
+  .mobile-toolbar .dropdown {
+    height: 44px;
+    min-width: 44px;
+    padding: 0 8px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-toolbar .submit-btn {
+    color: #3366cc;
+  }
+
+  .mobile-toolbar .submit-btn:hover {
+    background: rgba(51, 102, 204, 0.1);
+    color: #3366cc;
+  }
+
+  .mobile-toolbar .cdx-button__label {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .btn, .dropdown {
+    height: 40px;
+    padding: 0 8px;
+    margin-right: 2px;
+    font-size: 14px;
+  }
+
+  .cdx-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Content adjustments */
+  .content-wrap {
+    padding: 0 12px;
+    margin: 0 auto 20px;
+    padding-top: 60px; /* Account for fixed toolbar */
+  }
+
+  .tagline {
+    display: none;
+  }
+
+  #editor {
+    padding: 12px 0;
+    min-height: 400px;
+  }
+
+  .status {
+    padding: 8px 12px;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  /* Mobile menu adjustments */
+  .menu {
+    left: -8px;
+    min-width: 200px;
+    max-width: calc(100vw - 40px);
+  }
+
+  /* Publish button in mobile */
+  .publish-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 50px;
+    padding: 12px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+  }
+
+  /* Hide publish button from toolbar in mobile */
+  .ve-bar .group:last-child {
+    display: none;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  .mobile-toolbar {
+    display: none;
+  }
+  
+  .desktop-toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+}
