@@ -3,42 +3,280 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=variant-d.html">
-  <title>Redirecting to Variant D Demo...</title>
+  <title>Create Wikipedia Article - Choose Your Path</title>
+  <link rel="stylesheet" href="https://unpkg.com/@wikimedia/codex@2.3.0/dist/codex.style.css">
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: #f8f9fa;
+      padding: 0;
     }
-    .message {
-      text-align: center;
-      padding: 2rem;
-    }
-    .message h1 {
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
       color: #202122;
-      margin-bottom: 1rem;
     }
-    .message p {
-      color: #54595d;
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: white;
     }
-    a {
-      color: #36c;
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header p {
+      font-size: 1.125rem;
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .options-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .options-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .option-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
       text-decoration: none;
+      display: flex;
+      flex-direction: column;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .option-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .option-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+    }
+
+    .option-card.smart::before {
+      background: linear-gradient(90deg, #f093fb, #f5576c);
+    }
+
+    .option-badge {
+      display: inline-block;
+      padding: 0.375rem 0.875rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+
+    .option-card.traditional .option-badge {
+      background: #e8eaed;
+      color: #5f6368;
+    }
+
+    .option-card.smart .option-badge {
+      background: #ffeef0;
+      color: #f5576c;
+    }
+
+    .option-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .option-card h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #202122;
+    }
+
+    .option-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #54595d;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .feature-list li {
+      padding: 0.5rem 0;
+      color: #54595d;
+      font-size: 0.9375rem;
+      display: flex;
+      align-items: start;
+      gap: 0.5rem;
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      color: #36c;
+      font-weight: bold;
+      font-size: 1.125rem;
+      flex-shrink: 0;
+    }
+
+    .option-card.smart .feature-list li::before {
+      color: #f5576c;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      background: #36c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    .cta-button:hover {
+      background: #2e5aaa;
+    }
+
+    .option-card.smart .cta-button {
+      background: linear-gradient(90deg, #f093fb, #f5576c);
+    }
+
+    .option-card.smart .cta-button:hover {
+      background: linear-gradient(90deg, #e082ea, #e4465b);
+    }
+
+    .cta-arrow {
+      font-size: 1.25rem;
+      transition: transform 0.2s ease;
+    }
+
+    .option-card:hover .cta-arrow {
+      transform: translateX(4px);
+    }
+
+    .recommended-badge {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+      color: white;
+      padding: 0.375rem 0.875rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(245, 87, 108, 0.4);
+    }
+
+    @media (max-width: 767px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .header p {
+        font-size: 1rem;
+      }
+
+      .option-card h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="message">
-    <h1>🚀 Redirecting to Variant D Demo...</h1>
-    <p>If you're not redirected automatically, <a href="variant-d.html">click here</a>.</p>
+  <div class="header">
+    <h1>Create a Wikipedia Article</h1>
+    <p>Choose the approach that works best for you</p>
+  </div>
+
+  <div class="options-container">
+    <!-- Option 1: Traditional Flow -->
+    <a href="variant-d.html" class="option-card traditional">
+      <span class="option-badge">Option 1</span>
+      <div class="option-icon">📋</div>
+      <h2>Step-by-Step Guide</h2>
+      <p>Follow a structured, guided process to create your article. Perfect for learning Wikipedia's standards and exploring different article types.</p>
+
+      <ul class="feature-list">
+        <li>Browse 12 main categories with 60+ subcategories</li>
+        <li>Get category-specific templates and guidelines</li>
+        <li>View real Wikipedia examples for each section</li>
+        <li>Add citations from recommended sources</li>
+        <li>Learn Wikipedia notability standards</li>
+      </ul>
+
+      <div class="cta-button">
+        Start with categories
+        <span class="cta-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Option 2: Smart Flow -->
+    <a href="smart-flow.html" class="option-card smart">
+      <span class="recommended-badge">✨ Recommended</span>
+      <span class="option-badge">Option 2</span>
+      <div class="option-icon">🚀</div>
+      <h2>Smart Quick Start</h2>
+      <p>Get started instantly with AI-powered assistance. Just provide your article topic and language, and we'll generate a customized outline for you.</p>
+
+      <ul class="feature-list">
+        <li>AI-generated article structure in seconds</li>
+        <li>Automatic category detection</li>
+        <li>Customized section suggestions</li>
+        <li>Support for 300+ languages</li>
+        <li>Skip the tedious category selection</li>
+      </ul>
+
+      <div class="cta-button">
+        Start with AI
+        <span class="cta-arrow">→</span>
+      </div>
+    </a>
   </div>
 </body>
 </html>
