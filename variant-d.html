@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Variant D — Inline Section Cards</title>
+  <link rel="stylesheet" href="./chrome.css">
+  <link rel="stylesheet" href="https://unpkg.com/@wikimedia/codex@2.3.0/dist/codex.style.css">
+  <link rel="stylesheet" href="./variant-d.css">
+</head>
+<body>
+
+
+  <div class="ve-interface ve-interface--prototype">
+    <header class="container page-header" role="banner">
+      <h1 class="firstHeading">New Article</h1>
+      <div class="page-tabs-wrapper">
+        <nav class="ns-tabs" aria-label="Namespace tabs">
+          <button class="ns-tab active">Article</button>
+          <button class="ns-tab">Talk</button>
+        </nav>
+        <nav class="page-actions" aria-label="Page actions">
+          <button class="action-tab">
+            <span class="action-tab-text">Read</span>
+            <span class="action-tab-icon cdx-icon" data-icon="cdxIconArticle"></span>
+          </button>
+          <button class="action-tab active">
+            <span class="action-tab-text">Edit</span>
+            <span class="action-tab-icon cdx-icon" data-icon="cdxIconEdit"></span>
+          </button>
+          <button class="action-tab">
+            <span class="action-tab-text">View history</span>
+            <span class="action-tab-icon cdx-icon" data-icon="cdxIconHistory"></span>
+          </button>
+          <button class="action-tab star">
+            <span class="action-tab-text">⭐</span>
+            <span class="action-tab-icon cdx-icon" data-icon="cdxIconStar"></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <div class="ve-strip" role="region" aria-label="Editing toolbar">
+      <div class="ve-bar">
+        <div class="mobile-toolbar">
+          <button class="btn" id="close" title="Close"><span class="cdx-icon" data-icon="cdxIconClose"></span></button>
+          <button class="btn" id="undo" title="Undo"><span class="cdx-icon" data-icon="cdxIconUndo"></span></button>
+          <div class="dropdown" id="dd-style-mobile">
+            <span class="cdx-icon" data-icon="cdxIconTextStyle"></span>
+            <span class="caret" aria-hidden="true"></span>
+          </div>
+          <button class="btn" id="quote" title="Quote"><span class="cdx-icon" data-icon="cdxIconQuotes"></span></button>
+          <button class="btn" id="btn-link-mobile" title="Add link"><span class="cdx-icon" data-icon="cdxIconLink"></span></button>
+          <div class="dropdown" id="dd-edit-mobile">
+            <span class="cdx-icon" data-icon="cdxIconEdit"></span>
+            <span class="caret" aria-hidden="true"></span>
+          </div>
+          <button class="btn submit-btn" id="submit" title="Submit" style="margin-left: auto;">
+            <span class="cdx-icon" data-icon="cdxIconNext">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"></path></svg>
+            </span>
+          </button>
+        </div>
+
+        <div class="desktop-toolbar">
+          <div class="group tight">
+            <button class="btn" id="undo-desktop" title="Undo"><span class="cdx-icon" data-icon="cdxIconUndo"></span></button>
+            <button class="btn" id="redo" title="Redo"><span class="cdx-icon" data-icon="cdxIconRedo"></span></button>
+          </div>
+          <div class="group">
+            <div class="dropdown" id="dd-paragraph">
+              <span class="cdx-icon" data-icon="cdxIconTextHeading"></span>
+              <span class="cdx-button__label">Paragraph</span>
+              <span class="caret" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="group">
+            <div class="dropdown" id="dd-style">
+              <span class="cdx-icon" data-icon="cdxIconTextStyle"></span>
+              <span class="caret" aria-hidden="true"></span>
+            </div>
+            <button class="btn" id="bold" title="Bold"><strong>B</strong></button>
+            <button class="btn" id="italic" title="Italic"><em>I</em></button>
+            <button class="btn" id="underline" title="Underline"><span class="cdx-icon" data-icon="cdxIconUnderline"></span></button>
+          </div>
+          <div class="group">
+            <button class="btn" id="desktop-link" title="Add link"><span class="cdx-icon" data-icon="cdxIconLink"></span></button>
+            <button class="btn" id="media" title="Insert media"><span class="cdx-icon" data-icon="cdxIconImage"></span></button>
+            <button class="btn" id="template" title="Insert template"><span class="cdx-icon" data-icon="cdxIconPuzzle"></span></button>
+          </div>
+          <div class="group">
+            <button class="btn submit-btn" id="submit-desktop" title="Publish changes">
+              <span class="cdx-icon" data-icon="cdxIconNext">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"></path></svg>
+              </span>
+              <span class="cdx-button__label">Publish</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="ve-prototype-body">
+    <div id="canvas" class="ve-prototype-editor" contenteditable="true" aria-live="polite" data-placeholder='Start writing or Press "/" for outline'></div>
+
+    <!-- Bottom Sheet for Section Selection -->
+    <div id="sectionSheet" class="section-bottom-sheet">
+      <div class="sheet-header">
+        <h3>Add a section</h3>
+        <button id="closeSheet" class="sheet-close-btn" aria-label="Close">×</button>
+      </div>
+      <div class="sheet-type-selector">
+        <label class="sheet-type-label">Article type:</label>
+        <button id="sheetTypeToggle" class="sheet-type-toggle" aria-haspopup="true" aria-expanded="false">Biography ▾</button>
+      </div>
+      <div id="sheetContent" class="sheet-content"></div>
+    </div>
+    
+    <!-- Category Selector Bottom Sheet -->
+    <div id="categorySheet" class="category-bottom-sheet">
+      <div class="category-sheet-header">
+        <button id="categoryBackBtn" class="category-back-btn" aria-label="Back" style="display: none;">
+          <span class="cdx-icon" data-icon="cdxIconArrowPrevious"></span>
+        </button>
+        <h3 id="categorySheetTitle">What is this article about?</h3>
+        <button id="closeCategorySheet" class="sheet-close-btn" aria-label="Close">×</button>
+      </div>
+      <div id="categoryContent" class="category-content"></div>
+    </div>
+
+    <!-- Citation Dialog Bottom Sheet -->
+    <div id="citationSheet" class="citation-bottom-sheet">
+      <div class="citation-sheet-header">
+        <button id="citationBackBtn" class="citation-back-btn" aria-label="Back">
+          <span class="cdx-icon" data-icon="cdxIconArrowPrevious"></span>
+        </button>
+        <h3 id="citationSheetTitle">Add citation</h3>
+        <button id="closeCitationSheet" class="sheet-close-btn" aria-label="Close">×</button>
+      </div>
+      <div id="citationContent" class="citation-content">
+        <p class="citation-subtitle">Add a source to support your statement</p>
+
+        <!-- Recommended sources container (will be populated by JS) -->
+        <div id="recommendedSourcesContainer" class="recommended-sources-container" style="display: none;">
+          <h4 class="recommended-sources-title">Recommended cricket sources:</h4>
+          <div id="recommendedSourcesChips" class="recommended-sources-chips"></div>
+        </div>
+
+        <!-- Search input -->
+        <div class="citation-search-container">
+          <input
+            type="text"
+            id="citationSearchInput"
+            class="citation-search-input"
+            placeholder="Paste URL or search for source..."
+            aria-label="Search for source">
+        </div>
+
+        <!-- Warning message -->
+        <div class="citation-warning">
+          <span class="citation-warning-icon">⚠️</span>
+          <span class="citation-warning-text"><strong>Avoid:</strong> Personal blogs, social media posts, fan sites, or wikis as primary sources</span>
+        </div>
+
+        <!-- Add citation button -->
+        <button id="addCitationBtn" class="cdx-button cdx-button--action cdx-button--progressive citation-add-btn">
+          Add citation
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="./variant-d.js"></script>
+</body>
+</html>
