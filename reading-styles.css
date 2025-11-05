@@ -22,10 +22,10 @@ html, body {
 }
 
 body {
-  margin: 0; 
-  background: var(--bg); 
+  margin: 0;
+  background: var(--bg);
   color: var(--text);
-  font: 14px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+  font: 14px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Liberation Sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .container {
