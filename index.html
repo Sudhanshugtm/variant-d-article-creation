@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Wikipedia Article - Choose Your Path</title>
+  <title>Create Wikipedia Article - Choose Your Template</title>
   <link rel="stylesheet" href="https://unpkg.com/@wikimedia/codex@2.3.0/dist/codex.style.css">
   <style>
     * {
@@ -16,11 +16,13 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem;
+      padding: 2rem 1rem 4rem;
       color: #202122;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
     .header {
@@ -30,25 +32,130 @@
     }
 
     .header h1 {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .header p {
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       opacity: 0.95;
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
+    }
+
+    .new-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .templates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .template-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .template-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      transition: height 0.3s ease;
+    }
+
+    .template-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+    }
+
+    .template-card:hover::before {
+      height: 6px;
+    }
+
+    .template-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .template-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #202122;
+    }
+
+    .template-card p {
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      color: #54595d;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .template-meta {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .template-tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.625rem;
+      background: #f8f9fa;
+      color: #5f6368;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+
+    /* Alternative paths section */
+    .alternative-section {
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 2px solid rgba(255,255,255,0.2);
     }
 
     .options-container {
       display: grid;
       grid-template-columns: 1fr;
       gap: 2rem;
-      max-width: 1200px;
-      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     @media (min-width: 768px) {
@@ -59,12 +166,10 @@
 
     .option-card {
       background: white;
-      border-radius: 16px;
+      border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
       cursor: pointer;
       text-decoration: none;
       display: flex;
@@ -72,22 +177,8 @@
     }
 
     .option-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-    }
-
-    .option-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: linear-gradient(90deg, #667eea, #764ba2);
-    }
-
-    .option-card.smart::before {
-      background: linear-gradient(90deg, #f093fb, #f5576c);
+      transform: translateY(-6px);
+      box-shadow: 0 15px 45px rgba(0,0,0,0.2);
     }
 
     .option-badge {
@@ -100,63 +191,28 @@
       letter-spacing: 0.5px;
       margin-bottom: 1rem;
       width: fit-content;
-    }
-
-    .option-card.traditional .option-badge {
       background: #e8eaed;
       color: #5f6368;
     }
 
-    .option-card.smart .option-badge {
-      background: #ffeef0;
-      color: #f5576c;
-    }
-
     .option-icon {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
       line-height: 1;
     }
 
-    .option-card h2 {
-      font-size: 1.75rem;
+    .option-card h3 {
+      font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       color: #202122;
     }
 
     .option-card p {
-      font-size: 1rem;
+      font-size: 0.9375rem;
       line-height: 1.6;
       color: #54595d;
       margin-bottom: 1.5rem;
-      flex-grow: 1;
-    }
-
-    .feature-list {
-      list-style: none;
-      margin-bottom: 2rem;
-    }
-
-    .feature-list li {
-      padding: 0.5rem 0;
-      color: #54595d;
-      font-size: 0.9375rem;
-      display: flex;
-      align-items: start;
-      gap: 0.5rem;
-    }
-
-    .feature-list li::before {
-      content: '✓';
-      color: #36c;
-      font-weight: bold;
-      font-size: 1.125rem;
-      flex-shrink: 0;
-    }
-
-    .option-card.smart .feature-list li::before {
-      color: #f5576c;
     }
 
     .cta-button {
@@ -164,53 +220,31 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      padding: 1rem 1.5rem;
+      padding: 0.875rem 1.25rem;
       background: #36c;
       color: white;
       border: none;
       border-radius: 8px;
-      font-size: 1rem;
+      font-size: 0.9375rem;
       font-weight: 600;
       cursor: pointer;
       transition: background 0.2s ease;
       text-decoration: none;
-      width: 100%;
+      margin-top: auto;
     }
 
     .cta-button:hover {
       background: #2e5aaa;
     }
 
-    .option-card.smart .cta-button {
-      background: linear-gradient(90deg, #f093fb, #f5576c);
-    }
-
-    .option-card.smart .cta-button:hover {
-      background: linear-gradient(90deg, #e082ea, #e4465b);
-    }
-
     .cta-arrow {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       transition: transform 0.2s ease;
     }
 
-    .option-card:hover .cta-arrow {
+    .option-card:hover .cta-arrow,
+    .template-card:hover .cta-arrow {
       transform: translateX(4px);
-    }
-
-    .recommended-badge {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: linear-gradient(135deg, #f093fb, #f5576c);
-      color: white;
-      padding: 0.375rem 0.875rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      box-shadow: 0 4px 12px rgba(245, 87, 108, 0.4);
     }
 
     @media (max-width: 767px) {
@@ -222,61 +256,159 @@
         font-size: 1rem;
       }
 
-      .option-card h2 {
-        font-size: 1.5rem;
+      .templates-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .templates-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .templates-grid {
+        grid-template-columns: repeat(4, 1fr);
       }
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>Create a Wikipedia Article</h1>
-    <p>Choose the approach that works best for you</p>
-  </div>
+  <div class="container">
+    <div class="header">
+      <div class="new-badge">✨ 8 New Templates Available</div>
+      <h1>Create a Wikipedia Article</h1>
+      <p>Choose a template designed for your article type</p>
+    </div>
 
-  <div class="options-container">
-    <!-- Option 1: Traditional Flow -->
-    <a href="variant-d.html" class="option-card traditional">
-      <span class="option-badge">Option 1</span>
-      <div class="option-icon">📋</div>
-      <h2>Step-by-Step Guide</h2>
-      <p>Follow a structured, guided process to create your article. Perfect for learning Wikipedia's standards and exploring different article types.</p>
+    <!-- Featured Templates Section -->
+    <section>
+      <h2 class="section-title">Start with a Template</h2>
+      <div class="templates-grid">
 
-      <ul class="feature-list">
-        <li>Browse 12 main categories with 60+ subcategories</li>
-        <li>Get category-specific templates and guidelines</li>
-        <li>View real Wikipedia examples for each section</li>
-        <li>Add citations from recommended sources</li>
-        <li>Learn Wikipedia notability standards</li>
-      </ul>
+        <!-- Films Template -->
+        <a href="variant-d.html" class="template-card">
+          <div class="template-icon">🎬</div>
+          <h3>Films</h3>
+          <p>Create articles about movies with sections for plot, cast, production, and reception.</p>
+          <div class="template-meta">
+            <span class="template-tag">Culture</span>
+            <span class="template-tag">6 sections</span>
+          </div>
+        </a>
 
-      <div class="cta-button">
-        Start with categories
-        <span class="cta-arrow">→</span>
+        <!-- TV Series Template -->
+        <a href="variant-d.html" class="template-card">
+          <div class="template-icon">📺</div>
+          <h3>TV Series</h3>
+          <p>Document television shows with premise, cast, episodes, and production details.</p>
+          <div class="template-meta">
+            <span class="template-tag">Culture</span>
+            <span class="template-tag">6 sections</span>
+          </div>
+        </a>
+
+        <!-- Books Template -->
+        <a href="variant-d.html" class="template-card">
+          <div class="template-icon">📚</div>
+          <h3>Books & Novels</h3>
+          <p>Write about literature with sections for plot, themes, publication, and adaptations.</p>
+          <div class="template-meta">
+            <span class="template-tag">Culture</span>
+            <span class="template-tag">6 sections</span>
+          </div>
+        </a>
+
+        <!-- Video Games Template -->
+        <a href="variant-d.html" class="template-card">
+          <div class="template-icon">🎮</div>
+          <h3>Video Games</h3>
+          <p>Cover video games with gameplay, development, release, and reception sections.</p>
+          <div class="template-meta">
+            <span class="template-tag">Culture</span>
+            <span class="template-tag">6 sections</span>
+          </div>
+        </a>
+
+        <!-- Companies Template -->
+        <a href="variant-d.html" class="template-card">
+          <div class="template-icon">🏢</div>
+          <h3>Companies</h3>
+          <p>Document businesses with history, products, financials, and leadership sections.</p>
+          <div class="template-meta">
+            <span class="template-tag">Society</span>
+            <span class="template-tag">6 sections</span>
+          </div>
+        </a>
+
+        <!-- Buildings Template -->
+        <a href="variant-d.html" class="template-card">
+          <div class="template-icon">🏛️</div>
+          <h3>Buildings</h3>
+          <p>Write about architecture with design, history, features, and significance sections.</p>
+          <div class="template-meta">
+            <span class="template-tag">Geography</span>
+            <span class="template-tag">6 sections</span>
+          </div>
+        </a>
+
+        <!-- Sports Teams Template -->
+        <a href="variant-d.html" class="template-card">
+          <div class="template-icon">⚽</div>
+          <h3>Sports Teams</h3>
+          <p>Cover professional teams with history, achievements, rivalries, and fan culture.</p>
+          <div class="template-meta">
+            <span class="template-tag">Society</span>
+            <span class="template-tag">6 sections</span>
+          </div>
+        </a>
+
+        <!-- Historical Events Template -->
+        <a href="variant-d.html" class="template-card">
+          <div class="template-icon">📜</div>
+          <h3>Historical Events</h3>
+          <p>Document major events with background, details, participants, and legacy sections.</p>
+          <div class="template-meta">
+            <span class="template-tag">History</span>
+            <span class="template-tag">6 sections</span>
+          </div>
+        </a>
+
       </div>
-    </a>
+    </section>
 
-    <!-- Option 2: Smart Flow -->
-    <a href="smart-flow.html" class="option-card smart">
-      <span class="recommended-badge">✨ Recommended</span>
-      <span class="option-badge">Option 2</span>
-      <div class="option-icon">🚀</div>
-      <h2>Smart Quick Start</h2>
-      <p>Get started instantly with AI-powered assistance. Just provide your article topic and language, and we'll generate a customized outline for you.</p>
+    <!-- Alternative Paths -->
+    <section class="alternative-section">
+      <h2 class="section-title">Or Choose a Different Path</h2>
+      <div class="options-container">
 
-      <ul class="feature-list">
-        <li>AI-generated article structure in seconds</li>
-        <li>Automatic category detection</li>
-        <li>Customized section suggestions</li>
-        <li>Support for 300+ languages</li>
-        <li>Skip the tedious category selection</li>
-      </ul>
+        <!-- Browse Categories -->
+        <a href="variant-d.html" class="option-card">
+          <span class="option-badge">Browse All</span>
+          <div class="option-icon">📋</div>
+          <h3>Browse All Categories</h3>
+          <p>Explore 12 main categories with 60+ subcategories to find the perfect template for your article.</p>
+          <div class="cta-button">
+            Browse categories
+            <span class="cta-arrow">→</span>
+          </div>
+        </a>
 
-      <div class="cta-button">
-        Start with AI
-        <span class="cta-arrow">→</span>
+        <!-- AI Quick Start -->
+        <a href="smart-flow.html" class="option-card">
+          <span class="option-badge">AI Powered</span>
+          <div class="option-icon">🚀</div>
+          <h3>AI Quick Start</h3>
+          <p>Let AI generate a customized outline based on your article topic and preferred language.</p>
+          <div class="cta-button">
+            Start with AI
+            <span class="cta-arrow">→</span>
+          </div>
+        </a>
+
       </div>
-    </a>
+    </section>
   </div>
 </body>
 </html>
