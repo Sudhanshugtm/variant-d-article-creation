@@ -944,6 +944,260 @@ The event [significance or lasting impact].`,
       ],
       link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability_(events)'
     }
+  },
+
+  // DEFAULT TEMPLATES FOR ALL CATEGORIES
+  'culture-default': {
+    introduction: {
+      template: `'''[Topic Name]''' is [brief description]. [Additional context].`,
+      placeholder: 'Click to start writing...'
+    },
+    sections: [
+      { id: 'overview', title: 'Overview', placeholder: 'Provide a general overview of the topic...' },
+      { id: 'history', title: 'History', placeholder: 'Describe the historical background...' },
+      { id: 'description', title: 'Description', placeholder: 'Provide detailed information...' },
+      { id: 'significance', title: 'Significance', placeholder: 'Explain the importance or impact...' }
+    ],
+    guidelines: {
+      title: 'Article Guidelines',
+      points: [
+        'Must have significant coverage in reliable sources',
+        'Maintain neutral point of view',
+        'Cite all claims with reliable sources',
+        'Follow Wikipedia notability guidelines'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability'
+    }
+  },
+
+  'geography-default': {
+    introduction: {
+      template: `'''[Place Name]''' is [type of place] located in [location]. [Key characteristics].`,
+      placeholder: 'Click to start writing...'
+    },
+    sections: [
+      { id: 'geography', title: 'Geography', placeholder: 'Describe physical characteristics and location...' },
+      { id: 'history', title: 'History', placeholder: 'Describe historical background...' },
+      { id: 'demographics', title: 'Demographics', placeholder: 'Include population and demographic information...' },
+      { id: 'culture', title: 'Culture', placeholder: 'Describe cultural aspects and significance...' }
+    ],
+    guidelines: {
+      title: 'Geography Article Guidelines',
+      points: [
+        'Include verifiable geographic information',
+        'Use official sources for statistics',
+        'Maintain neutral point of view',
+        'Cite all claims appropriately'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability_(geographic_features)'
+    }
+  },
+
+  'history-default': {
+    introduction: {
+      template: `'''[Topic Name]''' refers to [historical description]. [Time period and significance].`,
+      placeholder: 'Click to start writing...'
+    },
+    sections: [
+      { id: 'background', title: 'Background', placeholder: 'Provide historical context...' },
+      { id: 'details', title: 'Details', placeholder: 'Describe the historical topic in detail...' },
+      { id: 'impact', title: 'Impact', placeholder: 'Discuss the historical impact and significance...' },
+      { id: 'legacy', title: 'Legacy', placeholder: 'Explain lasting influence and how it\'s remembered...' }
+    ],
+    guidelines: {
+      title: 'History Article Guidelines',
+      points: [
+        'Use reliable historical sources',
+        'Include multiple perspectives when disputed',
+        'Cite academic historians and scholars',
+        'Maintain historical accuracy'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability'
+    }
+  },
+
+  'science-default': {
+    introduction: {
+      template: `'''[Scientific Topic]''' is [definition]. [Scientific context and significance].`,
+      placeholder: 'Click to start writing...'
+    },
+    sections: [
+      { id: 'description', title: 'Description', placeholder: 'Provide scientific description...' },
+      { id: 'research', title: 'Research', placeholder: 'Describe research and findings...' },
+      { id: 'applications', title: 'Applications', placeholder: 'Explain practical applications...' },
+      { id: 'significance', title: 'Significance', placeholder: 'Discuss scientific importance...' }
+    ],
+    guidelines: {
+      title: 'Science Article Guidelines',
+      points: [
+        'Cite peer-reviewed scientific sources',
+        'Use accessible language',
+        'Include technical detail appropriately',
+        'Follow scientific naming conventions'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Science'
+    }
+  },
+
+  'technology-default': {
+    introduction: {
+      template: `'''[Technology Name]''' is [type of technology]. [Purpose and application].`,
+      placeholder: 'Click to start writing...'
+    },
+    sections: [
+      { id: 'overview', title: 'Overview', placeholder: 'Provide general overview...' },
+      { id: 'technical', title: 'Technical details', placeholder: 'Describe technical aspects...' },
+      { id: 'applications', title: 'Applications', placeholder: 'Explain uses and applications...' },
+      { id: 'development', title: 'Development', placeholder: 'Describe development history...' }
+    ],
+    guidelines: {
+      title: 'Technology Article Guidelines',
+      points: [
+        'Cite technical publications',
+        'Avoid promotional language',
+        'Balance technical detail with accessibility',
+        'Include verifiable information'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability'
+    }
+  },
+
+  'society-default': {
+    introduction: {
+      template: `'''[Topic Name]''' is [description]. [Context and significance].`,
+      placeholder: 'Click to start writing...'
+    },
+    sections: [
+      { id: 'overview', title: 'Overview', placeholder: 'Provide general overview...' },
+      { id: 'background', title: 'Background', placeholder: 'Describe background and context...' },
+      { id: 'structure', title: 'Structure', placeholder: 'Explain organization or structure...' },
+      { id: 'impact', title: 'Impact', placeholder: 'Discuss societal impact...' }
+    ],
+    guidelines: {
+      title: 'Society Article Guidelines',
+      points: [
+        'Use reliable sources',
+        'Maintain neutral point of view',
+        'Cite claims appropriately',
+        'Follow notability guidelines'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability'
+    }
+  },
+
+  'health-default': {
+    introduction: {
+      template: `'''[Health Topic]''' is [medical definition]. [Key health information].`,
+      placeholder: 'Click to start writing...'
+    },
+    sections: [
+      { id: 'description', title: 'Description', placeholder: 'Describe the health topic...' },
+      { id: 'causes', title: 'Causes', placeholder: 'Explain causes or risk factors...' },
+      { id: 'treatment', title: 'Treatment', placeholder: 'Describe treatments or interventions...' },
+      { id: 'research', title: 'Research', placeholder: 'Include current research and findings...' }
+    ],
+    guidelines: {
+      title: 'Health Article Guidelines',
+      points: [
+        'Cite medical and scientific sources',
+        'Use reliable health publications',
+        'Avoid medical advice',
+        'Follow medical naming conventions'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Medicine'
+    }
+  },
+
+  'philosophy-default': {
+    introduction: {
+      template: `'''[Philosophical Topic]''' is [definition]. [Philosophical context].`,
+      placeholder: 'Click to start writing...'
+    },
+    sections: [
+      { id: 'overview', title: 'Overview', placeholder: 'Provide philosophical overview...' },
+      { id: 'history', title: 'History', placeholder: 'Describe historical development...' },
+      { id: 'key-ideas', title: 'Key ideas', placeholder: 'Explain main philosophical concepts...' },
+      { id: 'criticism', title: 'Criticism', placeholder: 'Include critiques and responses...' }
+    ],
+    guidelines: {
+      title: 'Philosophy Article Guidelines',
+      points: [
+        'Cite philosophical scholarship',
+        'Include multiple perspectives',
+        'Maintain neutrality',
+        'Use accessible language'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability'
+    }
+  },
+
+  'religion-default': {
+    introduction: {
+      template: `'''[Religious Topic]''' is [definition]. [Religious context and significance].`,
+      placeholder: 'Click to start writing...'
+    },
+    sections: [
+      { id: 'overview', title: 'Overview', placeholder: 'Provide general overview...' },
+      { id: 'beliefs', title: 'Beliefs and practices', placeholder: 'Describe key beliefs and practices...' },
+      { id: 'history', title: 'History', placeholder: 'Explain historical development...' },
+      { id: 'significance', title: 'Significance', placeholder: 'Discuss religious significance...' }
+    ],
+    guidelines: {
+      title: 'Religion Article Guidelines',
+      points: [
+        'Maintain neutral point of view',
+        'Cite religious scholarship',
+        'Respect diverse perspectives',
+        'Use appropriate terminology'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability'
+    }
+  },
+
+  'mathematics-default': {
+    introduction: {
+      template: `'''[Mathematical Topic]''' is [definition]. [Mathematical context].`,
+      placeholder: 'Click to start writing...'
+    },
+    sections: [
+      { id: 'definition', title: 'Definition', placeholder: 'Provide mathematical definition...' },
+      { id: 'properties', title: 'Properties', placeholder: 'Describe key properties...' },
+      { id: 'applications', title: 'Applications', placeholder: 'Explain applications...' },
+      { id: 'history', title: 'History', placeholder: 'Describe historical development...' }
+    ],
+    guidelines: {
+      title: 'Mathematics Article Guidelines',
+      points: [
+        'Use proper mathematical notation',
+        'Cite mathematical sources',
+        'Balance rigor with accessibility',
+        'Include proofs when appropriate'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Mathematics'
+    }
+  },
+
+  'humanities-default': {
+    introduction: {
+      template: `'''[Topic Name]''' is [description]. [Academic context].`,
+      placeholder: 'Click to start writing...'
+    },
+    sections: [
+      { id: 'overview', title: 'Overview', placeholder: 'Provide general overview...' },
+      { id: 'history', title: 'History', placeholder: 'Describe historical background...' },
+      { id: 'analysis', title: 'Analysis', placeholder: 'Include scholarly analysis...' },
+      { id: 'significance', title: 'Significance', placeholder: 'Discuss importance and impact...' }
+    ],
+    guidelines: {
+      title: 'Humanities Article Guidelines',
+      points: [
+        'Cite academic sources',
+        'Include diverse perspectives',
+        'Maintain scholarly tone',
+        'Follow academic conventions'
+      ],
+      link: 'https://en.wikipedia.org/wiki/Wikipedia:Notability'
+    }
   }
 };
 
